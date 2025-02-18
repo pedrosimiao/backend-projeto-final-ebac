@@ -1,0 +1,3 @@
+from .test_models import InteractionModelTest
+from .test_serializers import InteractionSerializerTest
+from .test_viewsets import InteractionViewSetTest
