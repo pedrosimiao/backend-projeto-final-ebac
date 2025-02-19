@@ -51,11 +51,15 @@ class ComplexInteractionsTest(APITestCase):
         self.assertEqual(Follower.objects.count(), 4)
 
     def test_get_posts_endpoint(self):
-        # Testa se o endpoint de posts retorna todos os posts criados
+    # Testa se o endpoint de posts retorna todos os posts criados (usando paginação)
         url = reverse("posts-list")
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.data), Post.objects.count())
+    # Verifica se a contagem total de posts é igual à contagem do banco
+        self.assertEqual(response.data["count"], Post.objects.count())
+    # Opcional: Verifica que a quantidade de posts na página (results) é menor ou igual ao PAGE_SIZE
+        self.assertLessEqual(len(response.data["results"]), 5)
+
 
     def test_like_post_endpoint(self):
         # Testa a criação de um like via API
