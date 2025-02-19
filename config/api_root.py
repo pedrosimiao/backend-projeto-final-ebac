@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from django.conf import settings
 
+
 class APIRootView(APIView):
     """
     Links para todos os endpoints da aplicação.

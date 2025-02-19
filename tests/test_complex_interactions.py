@@ -11,6 +11,7 @@ from posts.models import Post
 from interactions.models import Like, Comment
 from followers.models import Follower
 
+
 class ComplexInteractionsTest(APITestCase):
     def setUp(self):
         # Cria 5 usuários
@@ -33,7 +34,9 @@ class ComplexInteractionsTest(APITestCase):
         # Cada usuário (exceto o último) segue o próximo na lista
         self.followers = []
         for i in range(len(self.users) - 1):
-            self.followers.append(FollowerFactory(follower=self.users[i], following=self.users[i+1]))
+            self.followers.append(
+                FollowerFactory(follower=self.users[i], following=self.users[i + 1])
+            )
 
         self.client = APIClient()
         # Autentica com o primeiro usuário para testar endpoints protegidos

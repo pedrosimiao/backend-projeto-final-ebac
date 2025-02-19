@@ -6,6 +6,7 @@ from posts.factories import PostFactory
 
 from posts.models.post import Post
 
+
 class PostViewSetTest(APITestCase):
     def setUp(self):
         self.client = APIClient()

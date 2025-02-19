@@ -8,6 +8,7 @@ from interactions.models.comment import Comment
 from posts.factories import PostFactory
 from accounts.factories import UserFactory
 
+
 class LikeFactory(factory.django.DjangoModelFactory):
 
     class Meta:
@@ -17,6 +18,7 @@ class LikeFactory(factory.django.DjangoModelFactory):
     post = factory.SubFactory(PostFactory)
     created_at = factory.LazyFunction(lambda: timezone.now())
 
+
 class CommentFactory(factory.django.DjangoModelFactory):
 
     class Meta:
@@ -24,10 +26,11 @@ class CommentFactory(factory.django.DjangoModelFactory):
 
     user = factory.SubFactory(UserFactory)
     post = factory.SubFactory(PostFactory)
-    
+
     content = factory.Faker("sentence")
-    
+
     created_at = factory.LazyFunction(lambda: timezone.now())
+
 
 # Exemplo de uso:
 # like = LikeFactory()

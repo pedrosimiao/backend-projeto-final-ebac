@@ -2,6 +2,7 @@ from django.test import TestCase
 from posts.factories import PostFactory
 from posts.serializers.post_serializer import PostSerializer
 
+
 class PostSerializerTest(TestCase):
     def test_serializer_without_retweet(self):
         post = PostFactory(content="Hello World")

@@ -6,6 +6,7 @@ from posts.models.post import Post
 
 from accounts.factories import UserFactory
 
+
 class PostFactory(factory.django.DjangoModelFactory):
 
     class Meta:
@@ -13,8 +14,9 @@ class PostFactory(factory.django.DjangoModelFactory):
 
     user = factory.SubFactory(UserFactory)
     content = factory.Faker("text", max_nb_chars=280)
-    
+
     created_at = factory.LazyFunction(lambda: timezone.now())
+
 
 # Exemplo de uso:
 # post = PostFactory()

@@ -4,6 +4,7 @@ from accounts.factories import UserFactory
 
 from accounts.models.user import User
 
+
 class UserModelTest(TestCase):
     def test_create_user(self):
         user = UserFactory()

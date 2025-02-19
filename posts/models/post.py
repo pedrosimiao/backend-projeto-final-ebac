@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 
+
 class Post(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     content = models.TextField()
@@ -10,11 +11,11 @@ class Post(models.Model):
     created_at = models.DateField(auto_now_add=True)
 
     retweet = models.ForeignKey(
-        'self',
+        "self",
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        related_name='retweets'
+        related_name="retweets",
     )
 
     def __str__(self):

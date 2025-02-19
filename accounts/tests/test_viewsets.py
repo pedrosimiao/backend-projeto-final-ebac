@@ -3,6 +3,7 @@ from django.urls import reverse
 
 from accounts.factories import UserFactory
 
+
 class UserViewSetTest(APITestCase):
     def setUp(self):
         self.client = APIClient()
